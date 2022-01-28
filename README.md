@@ -11,52 +11,17 @@ The example here is very basic.  It's a simple contract demonstrating the follow
 - the difference between `view` vs. `change` methods
 - basic contract storage
 
-There are 2 AssemblyScript contracts in this project, each in their own folder:
+There are 1 Rust contracts in this project, each in their own folder:
 
-- **simple** in the `src/simple` folder
-- **singleton** in the `src/singleton` folder
+- **status message** in the `src/simple` folder
 
 ### Simple
 
-We say that an AssemblyScript contract is written in the "simple style" when the `index.ts` file (the contract entry point) includes a series of exported functions.
+We say that an rust contract is written in the "simple style" when the `index.ts` file (the contract entry point) includes a series of exported functions.
 
 In this case, all exported functions become public contract methods.
 
-```ts
-// return the string 'hello world'
-export function helloWorld(): string {}
 
-// read the given key from account (contract) storage
-export function read(key: string): string {}
-
-// write the given value at the given key to account (contract) storage
-export function write(key: string, value: string): string {}
-
-// private helper method used by read() and write() above
-private storageReport(): string {}
-```
-
-### Singleton
-
-We say that an AssemblyScript contract is written in the "singleton style" when the `index.ts` file (the contract entry point) has a single exported class (the name of the class doesn't matter) that is decorated with `@nearBindgen`.
-
-In this case, all methods on the class become public contract methods unless marked `private`.  Also, all instance variables are stored as a serialized instance of the class under a special storage key named `STATE`.  AssemblyScript uses JSON for storage serialization (as opposed to Rust contracts which use a custom binary serialization format called borsh).
-
-```ts
-#[near_bindgen]
-impl StatusMessage {
-    #[payable]
-    pub fn set_status(&mut self, message: String) {
-    }
-	
-
-    pub fn get_status(&self, account_id: String) -> Option::<String> {
-    }
-	pub fn hello_world(&self)->String{
-	}
-
-}
-```
 
 
 ## Usage

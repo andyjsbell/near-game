@@ -16,7 +16,7 @@ There are 1 Rust contracts in this project, each in their own folder:
 
 ### Simple
 
-We say that an rust contract is written in the "simple style" when the `index.ts` file (the contract entry point) includes a series of exported functions.
+We say that an rust contract is written in the "simple style" when the `lib.rs` file (the contract entry point) includes a series of exported functions.
 
 In this case, all exported functions become public contract methods.
 
@@ -36,8 +36,7 @@ Add the wasm target using `rustup target add wasm32-unknown-unknown`
 1. clone this repo to a local folder
 2. run `./scripts/1.dev-deploy.sh`
 3. run `./scripts/2.use-contract.sh`
-4. run `./scripts/2.use-contract.sh` (yes, run it to see changes)
-5. run `./scripts/3.cleanup.sh`
+4. run `./scripts/3.cleanup.sh`
 
 ### Videos
 

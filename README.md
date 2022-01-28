@@ -12,7 +12,7 @@ The example here is very basic.  It's a simple contract demonstrating the follow
 
 There are 1 Rust contracts in this project, each in their own folder:
 
-- **status message** in the `src/simple` folder
+- **status message** in the `src` folder
 
 ### Simple
 

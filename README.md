@@ -9,7 +9,6 @@ This repository includes a complete project structure for AssemblyScript contrac
 The example here is very basic.  It's a simple contract demonstrating the following concepts:
 - a single contract
 - the difference between `view` vs. `change` methods
-- basic contract storage
 
 There are 1 Rust contracts in this project, each in their own folder:
 
@@ -32,6 +31,7 @@ In this case, all exported functions become public contract methods.
 
 INSTALL `NEAR CLI` first like this: `npm i -g near-cli`
 INSTALL RUST toolchain
+Add the wasm target using `rustup target add wasm32-unknown-unknown`
 
 1. clone this repo to a local folder
 2. run `./scripts/1.dev-deploy.sh`

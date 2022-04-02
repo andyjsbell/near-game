@@ -15,7 +15,7 @@ trait Engine {
     /// Is the game finished, if so return the winner
     fn is_finished(&self) -> Option<Self::Player>;
     /// Play a turn in the game
-    fn play_turn(&mut self, column: Self::Turn, player: Self::Player) -> Option<Self::State>;
+    fn play_turn(&mut self, turn: Self::Turn, player: Self::Player) -> Option<Self::State>;
 }
 
 /// Connect four, https://en.wikipedia.org/wiki/Connect_Four
@@ -109,18 +109,18 @@ mod connect_four {
             None
         }
 
-        fn play_turn(&mut self, column: Self::Turn, player: Self::Player) -> Option<Self::State> {
-            if self.cells[column as usize][0] > 0 {
+        fn play_turn(&mut self, turn: Self::Turn, player: Self::Player) -> Option<Self::State> {
+            if self.cells[turn as usize][0] > 0 {
                 return None;
             }
 
             let board_rows: usize = self.cells[0].len();
             for y in 0..board_rows {
                 let y_pos = board_rows - y - 1;
-                if self.cells[column as usize][y_pos] > 0 {
+                if self.cells[turn as usize][y_pos] > 0 {
                     continue;
                 }
-                self.cells[column as usize][y_pos] = player;
+                self.cells[turn as usize][y_pos] = player;
                 break;
             }
 
